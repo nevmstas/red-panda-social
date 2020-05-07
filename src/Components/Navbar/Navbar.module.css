@@ -1,0 +1,41 @@
+nav{
+    font-size: 20px;
+    background-color:  #ff5c33;
+    box-shadow: 0 0 10px white;
+    position: sticky;
+    position: -webkit-sticky;
+    top:0;
+}   
+
+nav ul{
+    display:flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li{
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: 0.4s;
+    text-align: center;
+    color: white;
+}
+
+nav ul li:hover{
+    background-color: #262626;
+    text-shadow: 0 0 10px white;
+
+}
+
+@media all and (max-width:400px){
+    nav ul{
+        flex-direction: column;
+    }
+}
+
+
+
+
+
