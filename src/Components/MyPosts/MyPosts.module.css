@@ -1,0 +1,50 @@
+.postArea{
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin-top:70px;
+    margin-left: 50px;
+    padding:40px;
+
+    width: 400px;
+    height: 600px;
+    box-shadow: -20px 20px 0px 5px  #80bfff;
+    transition: 0.5s;
+    background-color: #ffebe6;
+}
+
+.title{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.postArea:hover{
+    border: 5px solid #ff5c33;
+    background-color: white;
+}
+
+.newPostAreaInput{
+    border: 2px solid #ff5c33;
+    border-radius: 20px;
+    height: 30px;
+    width: 270px;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+.sendBtn{
+    border: 2px solid #ff5c33;
+    width: 100px;
+    height: 40px;
+    margin-left: 10px;
+    color: #ff5c33;
+    border-radius: 10px;
+    text-align: center;
+    background-color:  white;
+    font-size: 23px;
+    transition: 0.3s;
+}
+
+.sendBtn:hover{
+    background-color: #ff8566;
+    color: white;
+}

@@ -1,17 +1,15 @@
 import React from 'react';
-import './App.css';
+import s from './App.module.css';
 import Navbar from './Components/Navbar/Navbar'
 import Header from './Components/Header/Header'
 import MyPosts from './Components/MyPosts/MyPosts';
 
 const App =() => {
   return( 
-    <div className={'app-wrapper'}>
+    <div className={s.appWrapper}>
       <Header />
       <Navbar/>
-      <div className={'content'}>
-         <MyPosts />
-      </div>
+      <MyPosts />
     </div>
   )
 }

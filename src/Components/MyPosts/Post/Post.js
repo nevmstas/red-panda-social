@@ -1,9 +1,10 @@
 import React from 'react'
+import s from './Post.module.css'
 
 const Post = (props) =>{
     return(
-        <div>
-            Post
+        <div className={s.post}>
+            <p>Post</p>
         </div>
     )
 }

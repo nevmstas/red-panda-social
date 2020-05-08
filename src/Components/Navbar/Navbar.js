@@ -3,14 +3,16 @@ import s from './Navbar.module.css'
 
 const Navbar = (props) =>{
     return(
-        <nav>
-            <ul>
-                <li>Profile</li>
-                <li>Messages</li>
-                <li>Search</li>
-                <li>Logout</li>
-            </ul>
-        </nav>
+        <div className={s.back}>
+            <nav>
+                <ul>
+                    <li>Profile</li>
+                    <li>Messages</li>
+                    <li>Search</li>
+                    <li>Logout</li>
+                </ul>
+            </nav>
+        </div>
     )
 }
 
