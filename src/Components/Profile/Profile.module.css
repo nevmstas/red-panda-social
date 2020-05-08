@@ -1,7 +1,8 @@
 .profileArea{
 
     flex: 1;
-    margin-top: 70px;
+    margin-top: 30px;
+    /* margin-left: 570px; */
     margin-left: 30px;
     height: 700px;
     background-color: #ffebe6; 
@@ -30,7 +31,7 @@
     width: 100%;
     height: auto;
     box-shadow: 0 0 10px black;
-    transition: 1s;
+    transition: 0.5s
 }
 .avatarImgContainer img:hover{
     height: auto;
