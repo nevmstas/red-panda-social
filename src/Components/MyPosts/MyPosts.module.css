@@ -11,16 +11,19 @@
     background-color: #ffebe6;
 }
 
+.postArea:hover{
+    /* border: 5px solid #ff5c33; */
+    background-color: white;
+    box-shadow: 0 0 0  #80bfff;
+}
+
 .title{
     text-align: center;
     font-size: 30px;
     margin-bottom: 30px;
 }
 
-.postArea:hover{
-    border: 5px solid #ff5c33;
-    background-color: white;
-}
+
 
 .newPostAreaInput{
     border: 2px solid #ff5c33;
@@ -32,19 +35,22 @@
 }
 
 .sendBtn{
-    border: 2px solid #ff5c33;
+    /* border: 2px solid #ff5c33; */
+    border: none;
     width: 100px;
     height: 40px;
     margin-left: 10px;
-    color: #ff5c33;
+    /* color: #ff5c33; */
+    color:white;
     border-radius: 10px;
     text-align: center;
-    background-color:  white;
+    background-color:  #80bfff;
     font-size: 23px;
     transition: 0.3s;
 }
 
 .sendBtn:hover{
-    background-color: #ff8566;
-    color: white;
+    /* background-color: #ff8566; */
+    background-color: #cce6ff;
+    color: #80bfff;
 }

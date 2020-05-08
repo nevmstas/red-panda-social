@@ -3,7 +3,7 @@ import s from './Navbar.module.css'
 
 const Navbar = (props) =>{
     return(
-        <div className={s.back}>
+        <div>
             <nav>
                 <ul>
                     <li>Profile</li>
