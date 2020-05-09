@@ -15,3 +15,8 @@
     background-color: #ff5c33;
     color: white;
 }
+
+.dialog.active{
+    background-color: #ff5c33;
+    color: white;
+}

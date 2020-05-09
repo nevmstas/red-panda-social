@@ -3,6 +3,9 @@ import Post from './Post/Post'
 import s from './MyPosts.module.css'
 
 const MyPosts = (props) =>{
+    
+    let postElements = props.posts.map((post) => <Post message = {post.text}/> )
+    
     return(
             <div className={s.postArea}>
 
@@ -10,8 +13,8 @@ const MyPosts = (props) =>{
                 <input placeholder={'Type smth...'} className={s.newPostAreaInput}></input>
                 <button className={s.sendBtn}>Send</button>
             
-            
-                <Post />    
+                {postElements}
+   
             </div>
     )
 }
