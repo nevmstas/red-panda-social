@@ -1,0 +1,17 @@
+.dialog{
+
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 200px;
+    height: 50px;
+    /* border: 2px solid #ff5c33; */
+    border-radius: 5px;
+    background-color: #ffffff;
+    vertical-align: middle;
+    transition: 0.3s;
+}
+
+.dialog:hover{
+    background-color: #ff5c33;
+    color: white;
+}
