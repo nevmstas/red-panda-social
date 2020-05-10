@@ -18,7 +18,7 @@ const App =(props) => {
       <Navbar/>
       <div className={s.PostsProfileContainer}> 
 
-        <MyPosts PostPage ={props.state.PostPage} updateNewPostText = {props.updateNewPostText} addPost = {props.addPost}/>
+        <MyPosts PostPage ={props.state.PostPage} dispatch = {props.dispatch}/>
 
         <Route path='/profile' render={() => <Profile /> }/>
 

@@ -14,9 +14,9 @@ let store = {
         messagesPage:{
             dialogs: [
                 {id:1, name: 'Rick'},
-                {id:2, name: 'Samber'},
-                {id:3, name: 'Mom'},
-                {id:4, name: 'Father'},
+                {id:2, name: 'Summer'},
+                {id:3, name: 'Bethany'},
+                {id:4, name: 'Jerry'},
             ],
             messages: [
                 {id:1, text:'Hi'},
@@ -27,15 +27,17 @@ let store = {
         }
     },
 
-    getState(){
-        return this._state;
-    },
-
     _rerenderEntireTree(){
 
     },
+    getState(){
+        return this._state;
+    },
+    subscribe(observer){
+        this._rerenderEntireTree = observer;
+    },
 
-    addPost() {
+    _addPost() {
         if(this._state.PostPage.newPostText!==''){
             let newPost={
                 id:5,
@@ -43,17 +45,24 @@ let store = {
                 likes:0
             }
             this._state.PostPage.posts.push(newPost);
-        }  
+            this._state.PostPage.newPostText ='';
+            this._rerenderEntireTree(this._state);
+        }
     },
-
-    updateNewPostText(newText){
+    _updateNewPostText(newText){
         this._state.PostPage.newPostText = newText;
         this._rerenderEntireTree(this._state);
     },
 
-    subscribe(observer){
-        this._rerenderEntireTree = observer;
+    dispatch(action){
+        debugger;
+        if(action.type === 'ADD-POST'){
+            this._addPost() 
+        }else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._updateNewPostText(action.newText)
+        }
     }
+    
 }
 
 export default store
