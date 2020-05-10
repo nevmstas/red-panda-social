@@ -1,3 +1,8 @@
+
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+
+
 let store = {
     _state: {
     
@@ -58,11 +63,25 @@ let store = {
         debugger;
         if(action.type === 'ADD-POST'){
             this._addPost() 
-        }else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+        }else if(action.type === UPDATE_NEW_POST_TEXT){
             this._updateNewPostText(action.newText)
         }
     }
     
 }
+
+export const addPostActionCreator =()=>{
+    return {
+        type:ADD_POST
+    }
+}
+
+export const onPostChangeActionCreator =(text)=>{
+    return{
+        type:UPDATE_NEW_POST_TEXT,
+        newText:text
+    }
+}
+
 
 export default store
