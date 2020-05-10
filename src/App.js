@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './App.module.css';
+
 import Navbar from './Components/Navbar/Navbar'
 import Header from './Components/Header/Header'
 import MyPosts from './Components/MyPosts/MyPosts';
@@ -17,7 +18,7 @@ const App =(props) => {
       <Navbar/>
       <div className={s.PostsProfileContainer}> 
 
-        <MyPosts posts ={props.state.posts}/>
+        <MyPosts PostPage ={props.state.PostPage} updateNewPostText = {props.updateNewPostText} addPost = {props.addPost}/>
 
         <Route path='/profile' render={() => <Profile /> }/>
 
