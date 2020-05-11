@@ -1,7 +1,17 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
-export const myPostReducer = (state, action) =>{  
+let initialState = {
+    posts: [
+        {id:1, text: 'Post 1', likes: 1},
+        {id:2, text: 'Post 2', likes: 2},
+        {id:3, text: 'Post 3', likes: 4},
+        {id:4, text: 'Post 4', likes: 2}
+    ],
+    newPostText: ''
+}
+
+export const myPostReducer = (state = initialState, action) =>{  
     switch (action.type) {
         case ADD_POST:
             if(state.newPostText!==''){

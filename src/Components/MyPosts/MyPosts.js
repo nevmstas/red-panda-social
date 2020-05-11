@@ -5,7 +5,7 @@ import s from './MyPosts.module.css'
 import {addPostActionCreator, onPostChangeActionCreator} from '../../Redux/mypost-reducer'
 
 const MyPosts = (props) =>{
-    
+    debugger;
     let postElements = props.PostPage.posts.map((post) => <Post message = {post.text}/> )
     
     let newPostElement = React.createRef();

@@ -6,8 +6,6 @@ import {sendMessageCreator, updateNewMessageCreator} from '../../Redux/dialogs-r
 
 const Dialogs =(props) =>{
 
-
-
     let dialogElements = props.state.dialogs.map((dialog) => {
         return <Dialog id={dialog.id} name = {dialog.name} />
     })
