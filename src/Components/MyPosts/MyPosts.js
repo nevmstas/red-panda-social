@@ -5,18 +5,18 @@ import s from './MyPosts.module.css'
 import {addPostActionCreator, onPostChangeActionCreator} from '../../Redux/mypost-reducer'
 
 const MyPosts = (props) =>{
-    debugger;
-    let postElements = props.PostPage.posts.map((post) => <Post message = {post.text}/> )
+
+    let postElements = props.posts.map((post) => <Post message = {post.text}/> )
     
     let newPostElement = React.createRef();
     
     function addPost() {         
-        props.dispatch(addPostActionCreator())      
+        props.addPost()      
     }
 
     let onPostChange = () =>{
         let text = newPostElement.current.value;     
-        props.dispatch(onPostChangeActionCreator(text))
+        props.onPostChange(text)      
     }
 
     return(
@@ -27,7 +27,7 @@ const MyPosts = (props) =>{
                         placeholder={'Type smth...'} 
                         className={s.newPostAreaInput}
                         onChange ={onPostChange}
-                        value = {props.PostPage.newPostText}></input>
+                        value = {props.newPostText}></input>
                 {/* <textarea placeholder={'Type smth...'} className={s.newPostAreaInput}></textarea> */}
                 <button className={s.sendBtn} onClick={addPost}>Send</button>
             

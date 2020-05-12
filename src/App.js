@@ -5,8 +5,9 @@ import Navbar from './Components/Navbar/Navbar'
 import Header from './Components/Header/Header'
 import MyPosts from './Components/MyPosts/MyPosts';
 import Profile from './Components/Profile/Profile';
-import Dialogs from './Components/Dialogs/Dialogs';
+import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import  { Route, BrowserRouter } from 'react-router-dom'
+import MyPostsContainer from './Components/MyPosts/MyPostsContainer';
 
 
 
@@ -19,14 +20,11 @@ const App =(props) => {
       <Navbar/>
       <div className={s.PostsProfileContainer}> 
 
-        <MyPosts PostPage ={props.state.PostPage} dispatch = {props.dispatch}/>
+        <MyPostsContainer store={props.store}/>
 
         <Route path='/profile' render={() => <Profile /> }/>
 
-        <Route path='/messages' render={() => <Dialogs 
-          state = {props.state.messagesPage}
-          dispatch = {props.dispatch}
-          /> }/>
+        <Route path='/messages' render={() => <DialogsContainer store ={props.store}/> }/>
       </div>
 
     </div>
