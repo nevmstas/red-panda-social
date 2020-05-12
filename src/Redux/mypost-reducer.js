@@ -13,23 +13,30 @@ let initialState = {
 
 export const myPostReducer = (state = initialState, action) =>{  
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST:{
             if(state.newPostText!==''){
                 let newPost={
                     id:5,
                     text: state.newPostText,
                     likes:0
                 }
-                state.posts.push(newPost);
-                state.newPostText ='';
-    
-            }
-            break;
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            break
+
+                let stateCopy = {...state}
+                stateCopy.posts = [...state.posts]
+                stateCopy.posts.push(newPost);
+                stateCopy.newPostText ='';
+                return stateCopy
+            }            
+        }
+        case UPDATE_NEW_POST_TEXT:{
+            let stateCopy = {...state}
+            stateCopy.newPostText = action.newText;
+
+            return stateCopy
+        }
+
         default:
-            break;
+            return state
     }
     
     return state;

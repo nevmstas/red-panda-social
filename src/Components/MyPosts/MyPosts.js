@@ -12,17 +12,15 @@ const MyPosts = (props) =>{
         props.addPost()      
     }
 
-    let onPostChange = () =>{
-        let text = newPostElement.current.value;     
-        props.onPostChange(text)      
+    let onPostChange = (e) =>{  
+        props.onPostChange(e.target.value)      
     }
 
     return(
             <div className={s.postArea}>
 
                 <div className={s.title}>My Posts</div>
-                <input ref={newPostElement} 
-                        placeholder={'Type smth...'} 
+                <input placeholder={'Type smth...'} 
                         className={s.newPostAreaInput}
                         onChange ={onPostChange}
                         value = {props.newPostText}></input>
