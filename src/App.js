@@ -1,9 +1,7 @@
 import React from 'react';
 import s from './App.module.css';
-
 import Navbar from './Components/Navbar/Navbar'
 import Header from './Components/Header/Header'
-import MyPosts from './Components/MyPosts/MyPosts';
 import Profile from './Components/Profile/Profile';
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import  { Route, BrowserRouter } from 'react-router-dom'
@@ -20,11 +18,11 @@ const App =(props) => {
       <Navbar/>
       <div className={s.PostsProfileContainer}> 
 
-        <MyPostsContainer store={props.store}/>
+        <MyPostsContainer/>
 
         <Route path='/profile' render={() => <Profile /> }/>
 
-        <Route path='/messages' render={() => <DialogsContainer store ={props.store}/> }/>
+        <Route path='/messages' render={() => <DialogsContainer /> }/>
       </div>
 
     </div>
