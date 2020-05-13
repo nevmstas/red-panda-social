@@ -14,6 +14,9 @@ const Navbar = (props) =>{
                         <NavLink to='/messages' activeClassName={s.active}>Messages</NavLink>
                     </li>
                     <li>Search</li>
+                    <li>
+                        <NavLink to='/users' activeClassName={s.active}>Find users</NavLink>
+                    </li>
                     <li>Logout</li>
                 </ul>
             </nav>

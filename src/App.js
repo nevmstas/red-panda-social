@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar/Navbar'
 import Header from './Components/Header/Header'
 import Profile from './Components/Profile/Profile';
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
+import UsersContainer from './Components/Users/UsersContainer'
 import  { Route, BrowserRouter } from 'react-router-dom'
 import MyPostsContainer from './Components/MyPosts/MyPostsContainer';
 
@@ -23,6 +24,8 @@ const App =(props) => {
         <Route path='/profile' render={() => <Profile /> }/>
 
         <Route path='/messages' render={() => <DialogsContainer /> }/>
+
+        <Route path='/users' render={() => <UsersContainer /> }/>
       </div>
 
     </div>
