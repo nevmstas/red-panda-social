@@ -6,8 +6,6 @@ const MyPosts = (props) =>{
 
     let postElements = props.posts.map((post) => <Post message = {post.text}/> )
     
-    let newPostElement = React.createRef();
-    
     let addPost = () =>{         
         props.addPost()      
     }

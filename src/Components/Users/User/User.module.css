@@ -1,0 +1,59 @@
+.userContainer{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    margin-left: 50px;
+    border-radius: 20px;
+    width: 40%;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px;
+    transition: 0.5s;
+
+}
+
+.userContainer:hover{
+    /* transform: scale(1.05);  */
+    color: #ff5c33;
+    box-shadow: -10px 0px 0px 0px  #ff5c33;
+}
+
+.userContainer img{
+    border-radius: 50%;
+    height: 100px;
+}
+.userContainer button{
+    
+}
+
+.textContainer{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.userName{
+    font-size: 20px;
+    font-weight: 700;
+}
+.status{
+    color:#9966ff
+}
+
+.userContainer button{
+    border: none;
+    outline: 0;
+    width: 70px;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+    transition: 0.3s;
+    font-size: 15px;
+}
+.followed{
+    color:white;
+    background-color:  #80bfff;
+}
+
+.unfollowed{
+    background-color: #cce6ff;
+    color: #80bfff;
+}

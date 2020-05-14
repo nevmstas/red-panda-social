@@ -34,22 +34,20 @@
 }
 
 .sendBtn{
-    /* border: 2px solid #ff5c33; */
     border: none;
     width: 100px;
     height: 40px;
     margin-left: 10px;
-    /* color: #ff5c33; */
     color:white;
     border-radius: 10px;
     text-align: center;
     background-color:  #80bfff;
     font-size: 23px;
     transition: 0.3s;
+    outline: 0;
 }
 
 .sendBtn:hover{
-    /* background-color: #ff8566; */
     background-color: #cce6ff;
     color: #80bfff;
 }
