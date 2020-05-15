@@ -6,7 +6,7 @@
 
     width: 400px;
     height: 600px;
-    box-shadow: -20px 20px 0px 5px  #80bfff;
+    box-shadow: -20px 20px 0px 5px  #d9b3ff;
     transition: 0.5s;
     background-color: #ffebe6;
     /* position: fixed; */
@@ -15,7 +15,7 @@
 .postArea:hover{
     /* border: 5px solid #ff5c33; */
     background-color: white;
-    box-shadow: 0 0 0  #80bfff;
+    box-shadow: 0 0 0  #d9b3ff;
 }
 
 .title{

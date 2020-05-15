@@ -14,8 +14,8 @@
 
 .userContainer:hover{
     /* transform: scale(1.05);  */
-    color: #ff5c33;
-    box-shadow: -10px 0px 0px 0px  #ff5c33;
+    color: #6737b8;
+    box-shadow: -10px 0px 0px 0px  #d9b3ff;
 }
 
 .userContainer img{
@@ -50,10 +50,10 @@
 }
 .followed{
     color:white;
-    background-color:  #80bfff;
+    background-color:  #cc99ff;
 }
 
 .unfollowed{
-    background-color: #cce6ff;
-    color: #80bfff;
+    background-color: #ede7f5;
+    color: #cc99ff;
 }

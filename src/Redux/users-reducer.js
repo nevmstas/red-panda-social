@@ -4,9 +4,9 @@ const SET_USERS = 'SET-USERS'
 
 let initialState = {
     users: [
-        {id: 1, photoUrl:'https://www.meme-arsenal.com/memes/1bee5fff6ec065a98aeba724f8d876a7.jpg', followed: false, fullName:'Stas',status:'kek', location:{city: 'Bishkek', country: 'Kyrgyzstan'}},
-        {id: 2, photoUrl:'https://proprikol.ru/wp-content/uploads/2019/10/kartinki-bart-simpson-2.jpg', followed: true, fullName:'Sergey',status:'lulw', location:{city: 'Tokmok', country: 'Kyrgyzstan'}},
-        {id: 3, photoUrl:'https://i.pinimg.com/236x/74/a4/cd/74a4cdf1162be300cc7f1168bda75ec0.jpg', followed: true, fullName:'Shukhrat',status:'kekw', location:{city: 'Almata', country: 'Kazahstan'}},
+        // {id: 1, photoUrl:'https://www.meme-arsenal.com/memes/1bee5fff6ec065a98aeba724f8d876a7.jpg', followed: false, fullName:'Stas',status:'kek', location:{city: 'Bishkek', country: 'Kyrgyzstan'}},
+        // {id: 2, photoUrl:'https://proprikol.ru/wp-content/uploads/2019/10/kartinki-bart-simpson-2.jpg', followed: true, fullName:'Sergey',status:'lulw', location:{city: 'Tokmok', country: 'Kyrgyzstan'}},
+        // {id: 3, photoUrl:'https://i.pinimg.com/236x/74/a4/cd/74a4cdf1162be300cc7f1168bda75ec0.jpg', followed: true, fullName:'Shukhrat',status:'kekw', location:{city: 'Almata', country: 'Kazahstan'}},
     ]
     
 }
