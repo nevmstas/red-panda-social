@@ -6,3 +6,7 @@
     height: auto;
     background-color: #ffebe6; 
 }
+
+.selectedPage{
+    font-weight: bold;
+}
