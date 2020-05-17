@@ -1,9 +1,14 @@
 import React from 'react'
 import s from  './Profile.module.css'
 import BackgroundImg from './Background.png'
-import AvatarImg from './Avatar.png'
+import { Loader } from '../Common/Loader/Loader'
+import userPhoto from './../../Assets/userImg.png'
 
 const Profile = (props) =>{
+    if(!props.profile) {
+        return <Loader />
+    }
+    
     return(
         <div className={s.profileArea}>
             
@@ -11,7 +16,7 @@ const Profile = (props) =>{
                 <img src={BackgroundImg} alt={'background'}/>
             </div>
             <div className={s.avatarImgContainer}>
-                <img src={AvatarImg} alt={''}></img>
+                <img style={{background:'#ede7f5'}} src={props.profile.photos.large == null? userPhoto : props.profile.photos.large} alt={''}></img>
                 
             </div>   
             <div className = {s.userInfo}>

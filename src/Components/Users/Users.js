@@ -1,6 +1,7 @@
 import React from 'react'
 import {User} from './User/User'
 import s from './Users.module.css'
+import {Loader} from '../Common/Loader/Loader'
 
 //Presentation component
 const Users = (props) =>{
@@ -19,12 +20,10 @@ const Users = (props) =>{
                 })}
 
             </div>
-            { props.users.map(u => <User user = {u} follow = {props.follow} unFollow = {props.unFollow}/>)}
+            { props.isFetching? <Loader /> : props.users.map(u => <User user = {u} follow = {props.follow} unFollow = {props.unFollow}/>)}
         </div>
 
     )
 }
-
-
 
 export default Users
