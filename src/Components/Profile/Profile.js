@@ -5,9 +5,11 @@ import { Loader } from '../Common/Loader/Loader'
 import userPhoto from './../../Assets/userImg.png'
 
 const Profile = (props) =>{
+
     if(!props.profile) {
         return <Loader />
     }
+
     
     return(
         <div className={s.profileArea}>
