@@ -1,3 +1,4 @@
+import {usersApi} from './../api/api'
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
 
 let initialState = {
@@ -20,5 +21,14 @@ export const setUserProfile = (profile) => ({
     type: SET_USER_PROFILE,
     profile
 })
+
+
+export const getProfile = (userId) => {
+    return (dispatch) => {
+        usersApi.getUserProfile(userId).then(data => {
+                dispatch(setUserProfile(data))
+            })
+    }
+}
 
 

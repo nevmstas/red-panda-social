@@ -2,24 +2,14 @@ import React from 'react'
 import s from './User.module.css'
 import userPhoto from './../../../Assets/userImg.png'
 import { NavLink } from 'react-router-dom'
-import axios from 'axios'
-import {usersApi} from './../../../api/api'
 
 export const User = (props)=>{
-    const followTest = (userId) =>{
-        usersApi.followUser(userId).then(data => {
-                if( data.resultCode === 0 ){
-                    props.follow(userId)
-                }
-            })
+    const onFollowClick = (userId) =>{
+        props.follow(userId)
     }
 
-    const unFollowTest = (userId) =>{
-        usersApi.unFollowUser(userId).then(data => {
-                if( data.resultCode === 0 ){
-                    props.unFollow(userId)
-                }
-            })
+    const onUnFollowClick = (userId) =>{
+        props.unFollow(userId)
     }
     
 
@@ -42,14 +32,14 @@ export const User = (props)=>{
             </div>
             
 
-            {props.user.followed ? <button className={s.unfollowed} onClick = {() => {
+            {props.user.followed ? <button disabled={props.followingInProgress.some(id=>id === props.user.id)} className={s.unfollowed} onClick = {() => {
                 //props.unFollow(props.user.id)
-                unFollowTest(props.user.id)
+                onUnFollowClick(props.user.id)
             
             }}>Unfollow</button>
-                                 : <button className={s.followed} onClick={() => {
+                                 : <button disabled={props.followingInProgress.some(id=>id === props.user.id)} className={s.followed} onClick={() => {
             //props.follow(props.user.id)
-                followTest(props.user.id)
+                onFollowClick(props.user.id)
             }}>Follow</button> }         
         </div>
     )

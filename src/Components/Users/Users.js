@@ -20,7 +20,11 @@ const Users = (props) =>{
                 })}
 
             </div>
-            { props.isFetching? <Loader /> : props.users.map(u => <User user = {u} follow = {props.follow} unFollow = {props.unFollow}/>)}
+            { props.isFetching? <Loader /> : props.users.map(u => <User user = {u} 
+                                                                        follow = {props.follow} 
+                                                                        unFollow = {props.unFollow} 
+                                                                        toggleFollowingProgress={props.toggleFollowingProgress} 
+                                                                        followingInProgress={props.followingInProgress}/>)}
         </div>
 
     )
