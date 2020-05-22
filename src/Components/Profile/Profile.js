@@ -3,6 +3,7 @@ import s from  './Profile.module.css'
 import BackgroundImg from './Background.png'
 import { Loader } from '../Common/Loader/Loader'
 import userPhoto from './../../Assets/userImg.png'
+import {Status} from './ProfileInfo/Status'
 
 const Profile = (props) =>{
 
@@ -22,8 +23,10 @@ const Profile = (props) =>{
                 
             </div>   
             <div className = {s.userInfo}>
-                <p className={s.fullName}>Morty Smith</p>    
-            </div>   
+                <p className={s.fullName}>{props.profile.name}</p> 
+                <Status status = {"dead inside"}/>
+            </div>  
+
         </div>
     )
 }

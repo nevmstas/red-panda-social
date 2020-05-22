@@ -5,13 +5,15 @@ import Profile from './Profile'
 import {setUserProfile, getProfile} from './../../Redux/profile-reducer'
 import { withRouter, Redirect } from 'react-router-dom'
 import {withAuthRedirect} from './../../hoc/withAuthRedirect'
+import { compose } from 'redux'
 
 const ProfileContainer = (props) =>{
     
     useEffect(()=>{
+        debugger
         let userId = props.match.params.userId
         if(!userId){
-            userId = 2;
+            userId = 11;
         }
         props.getProfile(userId)
     },[])
@@ -23,20 +25,17 @@ const ProfileContainer = (props) =>{
     )
 }
 
-
-
-let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
-
-
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
 })
 
 
 
-let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
-
-export default connect(mapStateToProps, {
-    setUserProfile,
-    getProfile
-})(WithUrlDataContainerComponent)
+export default compose(
+    connect(mapStateToProps, {
+        setUserProfile,
+        getProfile
+    }),
+    withRouter,
+    withAuthRedirect
+    )(ProfileContainer)
