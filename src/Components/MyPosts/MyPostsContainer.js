@@ -1,7 +1,7 @@
 import MyPosts from './MyPosts'
 import {connect} from 'react-redux'
 
-import {addPostActionCreator, onPostChangeActionCreator} from '../../Redux/mypost-reducer'
+import {addPost, onPostChange} from '../../Redux/mypost-reducer'
 import { compose } from 'redux'
 
 let mapStateToProps = (state) =>{  
@@ -11,17 +11,26 @@ let mapStateToProps = (state) =>{
     }
 }
 
-let mapDispatchToProps = (dispatch) =>{
-    return{
-        addPost:()=>{
-            dispatch(addPostActionCreator())
-        },
-        onPostChange: (text) => {
-            dispatch(onPostChangeActionCreator(text))
-        }
-    }
-}
+// let mapDispatchToProps = (dispatch) =>{
+//     return{
+//         addPost:()=>{
+//             dispatch(addPostActionCreator())
+//         },
+//         onPostChange: (text) => {
+//             dispatch(onPostChangeActionCreator(text))
+//         }
+//     }
+// }
 
+// export default compose(
+//     connect(mapStateToProps, mapDispatchToProps)
+//     )(MyPosts)
+
+
+    
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps)
+    connect(mapStateToProps, {
+        addPost,
+        onPostChange
+    })
     )(MyPosts)

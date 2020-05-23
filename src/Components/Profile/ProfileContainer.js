@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import Profile from './Profile'
-import {setUserProfile, getProfile} from './../../Redux/profile-reducer'
+import {setUserProfile, getProfile, updateStatus, getStatus} from './../../Redux/profile-reducer'
 import { withRouter, Redirect } from 'react-router-dom'
 import {withAuthRedirect} from './../../hoc/withAuthRedirect'
 import { compose } from 'redux'
@@ -10,23 +10,24 @@ import { compose } from 'redux'
 const ProfileContainer = (props) =>{
     
     useEffect(()=>{
-        debugger
         let userId = props.match.params.userId
         if(!userId){
-            userId = 11;
+            userId = 8260;
         }
         props.getProfile(userId)
+        props.getStatus(userId)
     },[])
     
   
 
     return(
-        <Profile {...props} profile = {props.profile}/>
+        <Profile {...props} profile = {props.profile} status = {props.status}/>
     )
 }
 
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
+    status: state.profilePage.status
 })
 
 
@@ -34,7 +35,9 @@ let mapStateToProps = (state) => ({
 export default compose(
     connect(mapStateToProps, {
         setUserProfile,
-        getProfile
+        getProfile,
+        updateStatus,
+        getStatus
     }),
     withRouter,
     withAuthRedirect

@@ -3,6 +3,7 @@ import s from './../Profile.module.css'
 
 export const Status = (props) =>{
     const [isEditMode, setEditMode] = useState(false)
+    const [status, setStatus] = useState(props.status)
 
 
     let activateEditMode = () =>{
@@ -11,11 +12,18 @@ export const Status = (props) =>{
 
     let deactivateEditMode = () =>{
         setEditMode(false)
+        props.updateStatus(status)
     }
+
+    const onStatusChange = (e) =>{
+        setStatus(e.currentTarget.value)
+    }
+
     return (
         <div>
-            {!isEditMode ? <div onClick = {activateEditMode}>{props.status}</div> : <div><input autoFocus={true} onBlur={deactivateEditMode} value="kek"></input></div>}  
+            {!isEditMode ? 
+            <div onClick = {activateEditMode}>{props.status || "<------>"}</div> : 
+            <div><input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status}></input></div>}  
         </div>
-    )
-    
+    )   
 }

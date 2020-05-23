@@ -13,7 +13,8 @@ export const usersApi = {
     },
     
     getUserProfile(userId){
-        return instance.get(`Profile/`+ userId).then(response => response.data)
+        console.warn('Obsolete method. Please use profileApi object')
+        return profileApi.getUserProfile(userId)
     },
 
     followUser(userId){
@@ -22,6 +23,18 @@ export const usersApi = {
 
     unFollowUser(userId){
         return instance.delete(`follow/${userId}`).then(response => response.data)
+    }
+}
+
+export const profileApi = {
+    getUserProfile(userId){
+        return instance.get(`profile/`+ userId).then(response => response.data)
+    },
+    getStatus(userId){
+        return instance.get(`profile/status/`+ userId)
+    },
+    updateStatus(status){
+        return instance.put(`profile/status`, {status: status})
     }
 }
 

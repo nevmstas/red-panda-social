@@ -6,7 +6,6 @@ import userPhoto from './../../Assets/userImg.png'
 import {Status} from './ProfileInfo/Status'
 
 const Profile = (props) =>{
-
     if(!props.profile) {
         return <Loader />
     }
@@ -23,8 +22,8 @@ const Profile = (props) =>{
                 
             </div>   
             <div className = {s.userInfo}>
-                <p className={s.fullName}>{props.profile.name}</p> 
-                <Status status = {"dead inside"}/>
+                <p className={s.fullName}>{props.profile.name}</p>                
+                <Status updateStatus= {props.updateStatus} status = {props.status}/>
             </div>  
 
         </div>
