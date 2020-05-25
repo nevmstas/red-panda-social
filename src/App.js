@@ -7,6 +7,7 @@ import UsersContainer from './Components/Users/UsersContainer'
 import  { Route, BrowserRouter } from 'react-router-dom'
 import MyPostsContainer from './Components/MyPosts/MyPostsContainer';
 import ProfileContainer from './Components/Profile/ProfileContainer';
+import { Login } from './Components/Login/Login';
 
 
 
@@ -26,6 +27,8 @@ const App =(props) => {
         <Route path='/messages' render={() => <DialogsContainer /> }/>
 
         <Route path='/users' render={() => <UsersContainer /> }/>
+
+        <Route path='/login' render={() => <Login /> }/>
       </div>
 
     </div>

@@ -19,7 +19,7 @@ const Navbar = (props) =>{
                         <NavLink to='/users' activeClassName={s.active}>Find users</NavLink>
                     </li>
                     <li className={s.push}>
-                        { props.isAuth ? 'User: ' + props.login : <NavLink to='/login' activeClassName={s.active}><Login/></NavLink> }
+                        { props.isAuth ? 'User: ' + props.login : <NavLink to='/login' activeClassName={s.active}>Login</NavLink> }
                     </li>
                 </ul>
             </nav>
