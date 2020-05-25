@@ -1,0 +1,51 @@
+.loginFormContainer{
+    display: block;
+    background-color: #ffebe6; 
+    padding:100px;
+    height: 210px;
+    margin-top: 150px;
+    margin-left: 300px;
+    font-weight: bold;
+
+}
+.heading{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.inputStyle{
+    border: 2px solid #ff5c33;
+    border-radius: 20px;
+    height: 30px;
+    width: 200px;
+    font-size: 20px;
+    padding-left: 10px;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.loginBtn{
+    border: none;
+    width: 100px;
+    height: 40px;
+    color:white;
+    border-radius: 10px;
+    text-align: center;
+    background-color:  #80bfff;
+    font-size: 23px;
+    transition: 0.3s;
+    outline: 0;
+}
+
+.loginBtn:hover{
+    background-color: #cce6ff;
+    color: #80bfff;
+}
+
+.rememberMeCb{
+
+}
+
+
+
