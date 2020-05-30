@@ -22,7 +22,7 @@ export const dialogReducer = (state = initialState, action) =>{
 
     switch (action.type) {
         case SEND_MESSAGE:{
-            let body = state.newMessageText
+            let body = action.message
             return {
                 ...state,
                 newMessageText:'',
@@ -40,9 +40,10 @@ export const dialogReducer = (state = initialState, action) =>{
     }
 }
 
-export const sendMessageCreator = () =>{
+export const sendMessageCreator = (message) =>{
     return{
-        type:SEND_MESSAGE
+        type:SEND_MESSAGE,
+        message
     }
 }
 

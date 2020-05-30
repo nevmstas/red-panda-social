@@ -16,8 +16,8 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) =>{
     return{
-        onSendMessage: () =>{
-            dispatch(sendMessageCreator())
+        onSendMessage: (message) =>{
+            dispatch(sendMessageCreator(message))
         },
         onChangeMessageText: (text)=>{
             dispatch(updateNewMessageCreator(text))

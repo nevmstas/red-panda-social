@@ -31,6 +31,7 @@
     width: 270px;
     font-size: 15px;
     padding-left: 10px;
+    outline: none;
 }
 
 .sendBtn{
