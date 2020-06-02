@@ -1,36 +1,43 @@
 import React from 'react'
 import s from './Login.module.css'
 import {Formik, useFormik} from 'formik'
+import {login} from  './../../Redux/auth-reducer'
 
-export const Login = (props) => {
+import {connect} from 'react-redux'
+import { Redirect } from 'react-router-dom'
+
+const Login = (props) => {
+    if (props.isAuth){
+        return <Redirect to = {'/profile'} />
+    }
     return(
         <div className={s.loginFormContainer}>
             <p className={s.heading}>Login</p>
-            <LoginForm />
+            <LoginForm login = {props.login}/>
         </div>
     )
 }
 
-export const LoginForm = () =>{
+const LoginForm = (props) =>{
     
     const formik  = useFormik({
         initialValues:{
-            login:'',
+            email:'',
             password:'',
             rememberMe: false
         },
         onSubmit: values =>{
-            alert(JSON.stringify(values, null, 2))
-    }
+           props.login(values.email, values.password, values.rememberMe)
+        }
     })
     return (
         <form onSubmit={formik.handleSubmit}>
             <div>
                 <label htmlFor='login'>Login</label>
                 <input className={s.inputStyle} 
-                        id='login'
-                        name='login'
-                        type='login'
+                        id='email'
+                        name='email'
+                        type='text'
                         onChange={formik.handleChange}
                         value={formik.values.login}/>
             </div>
@@ -60,5 +67,8 @@ export const LoginForm = () =>{
     )
 }
 
+const mapStateToProps = (state) =>({
+    isAuth: state.auth.isAuth
+})
 
-
+export default connect(mapStateToProps , { login }) (Login)

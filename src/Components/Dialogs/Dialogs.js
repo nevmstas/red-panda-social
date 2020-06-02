@@ -3,19 +3,16 @@ import s from './Dialogs.module.css'
 import Dialog from './Dialog/Dialog'
 import Message from './Message/Message'
 import { useFormik } from 'formik'
-import * as Yup from 'yup'
-import {messageSchema} from './../../validators.js'
+import { messageSchema } from './../../validators.js'
 
 
 const Dialogs =(props) =>{
-
     const formik = useFormik({
         initialValues: {
             message: ''
         },
         validationSchema: messageSchema,
         onSubmit: values => {
-            alert(values.message)
             props.onSendMessage(values.message)
         }
     })
@@ -35,7 +32,7 @@ const Dialogs =(props) =>{
             </div>
             <div className={s.messagesItems}>
                 <div>{messageElements}</div>
-
+            
                 <form onSubmit={formik.handleSubmit}>
                     <div><textarea placeholder='Enter your message...'
                                     id ='message'
@@ -43,6 +40,8 @@ const Dialogs =(props) =>{
                                     type = 'message'                                   
                                     onChange={formik.handleChange}                              
                                     value={formik.values.message}></textarea></div>
+                                    
+                                    { formik.errors.message && <div><h1>{formik.errors.message}</h1></div> }
                     <div><button type = 'submit' >Send</button></div>
                 </form>
 

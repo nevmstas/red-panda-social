@@ -4,20 +4,8 @@ import s from './MyPosts.module.css'
 import {Formik, useFormik} from 'formik'
 
 const MyPosts = (props) =>{
-
-    
-
     let postElements = props.posts.map((post) => <Post message = {post.text}/> )
     
-    let addPost = () =>{         
-        props.addPost()      
-    }
-
-    // let onPostChange = (e) =>{  
-    //     props.onPostChange(e.target.value)      
-    // }
-
-
     return(
             <div className={s.postArea}>
 

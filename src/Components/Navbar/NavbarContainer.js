@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Navbar from './Navbar'
 import {connect} from 'react-redux'
-import {getAuthUserData} from './../../Redux/auth-reducer'
+import {getAuthUserData, logout} from './../../Redux/auth-reducer'
 
 const NavbarContainer = (props) =>{
     useEffect(()=>{
@@ -17,4 +17,4 @@ const mapStateToProps = (state)=>({
     login: state.auth.login
 })
 
-export default connect(mapStateToProps, {getAuthUserData} )( NavbarContainer )
+export default connect(mapStateToProps, {getAuthUserData, logout} )( NavbarContainer )

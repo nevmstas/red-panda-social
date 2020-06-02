@@ -42,7 +42,7 @@ export const dialogReducer = (state = initialState, action) =>{
 
 export const sendMessageCreator = (message) =>{
     return{
-        type:SEND_MESSAGE,
+        type: SEND_MESSAGE,
         message
     }
 }
