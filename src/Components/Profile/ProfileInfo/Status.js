@@ -22,7 +22,7 @@ export const Status = (props) =>{
     return (
         <div>
             {!isEditMode ? 
-            <div onClick = {activateEditMode}>{props.status || "<------>"}</div> : 
+            <div onClick = {activateEditMode}>{props.status || "non status"}</div> : 
             <div><input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status}></input></div>}  
         </div>
     )   

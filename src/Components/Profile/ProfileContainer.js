@@ -7,12 +7,12 @@ import { withRouter, Redirect } from 'react-router-dom'
 import {withAuthRedirect} from './../../hoc/withAuthRedirect'
 import { compose } from 'redux'
 
+
 const ProfileContainer = (props) =>{
-    
     useEffect(()=>{
         let userId = props.match.params.userId
         if(!userId){
-            userId = 8260;
+            userId =  props.authorizedUserId;
         }
         props.getProfile(userId)
         props.getStatus(userId)
@@ -28,11 +28,9 @@ const ProfileContainer = (props) =>{
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
-    AuthorizedUserId: state.auth.userId,
+    authorizedUserId: state.auth.userId,
     isAuth: state.auth.isAuth
 })
-
-
 
 export default compose(
     connect(mapStateToProps, {

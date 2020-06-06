@@ -3,10 +3,12 @@ import Navbar from './Navbar'
 import {connect} from 'react-redux'
 import {getAuthUserData, logout} from './../../Redux/auth-reducer'
 
+
+
 const NavbarContainer = (props) =>{
-    useEffect(()=>{
-        props.getAuthUserData()
-    },[])
+    // useEffect(()=>{
+    //     props.getAuthUserData()
+    // },[])
     
     
     return <Navbar {...props}/>
