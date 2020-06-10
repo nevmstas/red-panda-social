@@ -1,5 +1,5 @@
 
-import Dialogs from './Dialogs'
+import Dialogs from './Dialogs123'
 import {sendMessageCreator, updateNewMessageCreator} from '../../Redux/dialogs-reducer'
 import {withAuthRedirect} from './../../hoc/withAuthRedirect'
 
