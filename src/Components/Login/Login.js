@@ -18,7 +18,7 @@ const Login = (props) => {
     )
 }
 
-const LoginForm = (props) =>{
+const LoginForm = ({login}) =>{
     
     const formik  = useFormik({
         initialValues:{
@@ -27,7 +27,7 @@ const LoginForm = (props) =>{
             rememberMe: false
         },
         onSubmit: values =>{
-           props.login(values.email, values.password, values.rememberMe)
+           login(values.email, values.password, values.rememberMe)
         }
     })
     return (

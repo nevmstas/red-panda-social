@@ -136,32 +136,50 @@ export const getUsers =(currentPage, pageSize)=> async (dispatch)=>{
     dispatch(toggleIsFetching(false))
 }
 
+export const followUnfollowFlow = async(dispatch, userId, apiMethod, actionCreator) =>{
 
-export const follow = (userId) =>{
-    
-    return (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId))
-        usersApi.followUser(userId).then(data => {
-                if( data.resultCode === 0 ){
-                    dispatch(followOk(userId))
-                    dispatch(toggleFollowingProgress(false, userId))
-                }
-            })
-    }
+        const data = await apiMethod(userId)
+            if( data.resultCode === 0 ){
+                dispatch(actionCreator(userId))
+                dispatch(toggleFollowingProgress(false, userId))
+            }
+
+} 
+
+export const follow = (userId) => async (dispatch) => {
+    const apiMethod = usersApi.followUser.bind(usersApi)
+    followUnfollowFlow(dispatch, userId, apiMethod, followOk)
 }
 
 
-export const unFollow = (userId) =>{
-    
-    return (dispatch) => {
-        dispatch(toggleFollowingProgress(true, userId))
-        usersApi.unFollowUser(userId).then(data => {
-                if( data.resultCode === 0 ){
-                    dispatch(unFollowOk(userId))
-                    dispatch(toggleFollowingProgress(false, userId))
-                }
-            })
-    }
+
+export const unFollow = (userId) => async (dispatch)=> {
+    const apiMethod = usersApi.unFollowUser.bind(usersApi)  
+    followUnfollowFlow(dispatch, userId, apiMethod, unFollowOk)
 }
+
+
+// export const follow = (userId) => async (dispatch) => {
+
+//         dispatch(toggleFollowingProgress(true, userId))
+//         const data = await usersApi.followUser(userId)
+//             if( data.resultCode === 0 ){
+//                 dispatch(followOk(userId))
+//                 dispatch(toggleFollowingProgress(false, userId))
+//             }
+//     }
+
+
+
+// export const unFollow = (userId) => async (dispatch)=> {
+    
+//         dispatch(toggleFollowingProgress(true, userId))
+//         const data = await usersApi.unFollowUser(userId)
+//             if( data.resultCode === 0 ){
+//                 dispatch(unFollowOk(userId))
+//                 dispatch(toggleFollowingProgress(false, userId))
+//             }
+// }
 
 

@@ -51,7 +51,6 @@ export const login = (email, password, rememberMe) => async (dispatch) => {
     if(response.data.resultCode === 0){
         dispatch(getAuthUserData())
     }
-
 }
 
 export const logout = () => async (dispatch) => {   

@@ -5,8 +5,8 @@ import { Loader } from '../Common/Loader/Loader'
 import userPhoto from './../../Assets/userImg.png'
 import {Status} from './ProfileInfo/Status'
 
-const Profile = (props) =>{
-    if(!props.profile) {
+const Profile = ({profile, updateStatus, status}) =>{
+    if(!profile) {
         return <Loader />
     }
 
@@ -18,12 +18,12 @@ const Profile = (props) =>{
                 <img src={BackgroundImg} alt={'background'}/>
             </div>
             <div className={s.avatarImgContainer}>
-                <img style={{background:'#ede7f5'}} src={props.profile.photos.large == null? userPhoto : props.profile.photos.large} alt={''}></img>
+                <img style={{background:'#ede7f5'}} src={profile.photos.large == null? userPhoto : profile.photos.large} alt={''}></img>
                 
             </div>   
             <div className = {s.userInfo}>
-                <p className={s.fullName}>{props.profile.name}</p>                
-                <Status updateStatus= {props.updateStatus} status = {props.status}/>
+                <p className={s.fullName}>{profile.name}</p>                
+                <Status updateStatus= {updateStatus} status = {status}/>
             </div>  
 
         </div>

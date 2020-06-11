@@ -6,22 +6,22 @@ import { useFormik } from 'formik'
 import { messageSchema } from './../../validators.js'
 
 
-const Dialogs =(props) =>{
+const Dialogs =({onSendMessage,dialogs, messages}) =>{
     const formik = useFormik({
         initialValues: {
             message: ''
         },
         validationSchema: messageSchema,
         onSubmit: values => {
-            props.onSendMessage(values.message)
+            onSendMessage(values.message)
         }
     })
     
-    let dialogElements = props.dialogs.map((dialog) => {
+    let dialogElements = dialogs.map((dialog) => {
         return <Dialog id={dialog.id} name = {dialog.name} />
     })
 
-    let messageElements = props.messages.map((message) =>{
+    let messageElements = messages.map((message) =>{
         return <Message id={message.id} text ={message.text} />
     })
     
