@@ -23,7 +23,8 @@ const UsersContainer = (props) =>{
                     follow = {props.follow}
                     unFollow = {props.unFollow}
                     isFetching = {props.isFetching}                    
-                    followingInProgress = {props.followingInProgress}/>
+                    followingInProgress = {props.followingInProgress}
+                    portionSize = {props.portionSize}/>
 }
 
 let mapStateToProps = (state) =>{
@@ -34,7 +35,8 @@ let mapStateToProps = (state) =>{
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         toggleFollowingProgress: state.usersPage.toggleFollowingProgress,
-        followingInProgress: state.usersPage.followingInProgress
+        followingInProgress: state.usersPage.followingInProgress,
+        portionSize: state.usersPage.portionSize
     }
 }
 
