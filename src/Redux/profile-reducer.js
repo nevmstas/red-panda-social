@@ -3,6 +3,7 @@ import { act } from 'react-dom/test-utils'
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
 const UPDATE_NEW_STATUS_TEXT = 'UPDATE-NEW-STATUS-TEXT' 
 const SET_STATUS = 'SET-STATUS'
+const SET_PHOTO_SUCCESS = 'SET-PHOTO-SUCCESS'
 
 let initialState = {
     profile: null,
@@ -26,6 +27,11 @@ export const profileReducer = (state = initialState, action) =>{
                 ...state,
                 status: action.status
             }
+        case SET_PHOTO_SUCCESS:
+            return{
+                ...state,
+                profile: {...state.profile, photos: action.photos}
+            }
         default:
             return state
     }
@@ -41,9 +47,24 @@ export const setStatus = (status) =>({
     status
 })
 
+
+export const savePhotoSuccess = (photos)=>({
+    type: SET_PHOTO_SUCCESS,
+    photos
+})
+
 export const getStatus = (userId) => async (dispatch)=> {
     const response = await profileApi.getStatus(userId)   
     dispatch(setStatus(response.data))
+}
+
+export const savePhoto = (file) => async(dispatch)=>{
+     const response = await profileApi.savePhoto(file)
+     if(response.data.resultCode === 0){
+        dispatch(savePhotoSuccess(response.data.data.photos))
+     }
+        
+    
 }
 
 export const updateStatus = (status) => async (dispatch)=> {

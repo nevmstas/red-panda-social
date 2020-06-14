@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import Profile from './Profile'
-import {setUserProfile, getProfile, updateStatus, getStatus} from './../../Redux/profile-reducer'
+import {setUserProfile, getProfile, updateStatus, getStatus, savePhoto} from './../../Redux/profile-reducer'
 import { withRouter, Redirect } from 'react-router-dom'
 import {withAuthRedirect} from './../../hoc/withAuthRedirect'
 import { compose } from 'redux'
@@ -16,12 +16,12 @@ const ProfileContainer = (props) =>{
         }
         props.getProfile(userId)
         props.getStatus(userId)
-    },[])
+    },[props.match.params.userId])
     
   
 
     return(
-        <Profile {...props} profile = {props.profile} status = {props.status}/>
+        <Profile {...props} profile = {props.profile} status = {props.status} isOwner = {!props.match.params.userId} savePhoto={props.savePhoto}/>
     )
 }
 
@@ -37,7 +37,8 @@ export default compose(
         setUserProfile,
         getProfile,
         updateStatus,
-        getStatus
+        getStatus,
+        savePhoto
     }),
     withRouter,
     withAuthRedirect
