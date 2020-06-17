@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from  './Profile.module.css'
 import BackgroundImg from './Background.png'
 import { Loader } from '../Common/Loader/Loader'
 import userPhoto from './../../Assets/userImg.png'
 import {Status} from './ProfileInfo/Status'
+import { ProfileInfo } from './ProfileInfo/ProfileInfo'
+import { ProfileInfoForm } from './ProfileInfo/ProfileInfoForm'
 
 const Profile = ({profile, updateStatus, status, isOwner, savePhoto}) =>{
+    
+    const [isEditMode, setEditMode] = useState(false)
+
     if(!profile) {
         return <Loader />
     }
@@ -17,6 +22,13 @@ const Profile = ({profile, updateStatus, status, isOwner, savePhoto}) =>{
         }
     }
 
+    const activateEditMode = ()=> {
+        setEditMode(true)
+    }
+
+    const deactiveteEditMode = ()=>{
+        setEditMode(false)
+    }
     
     return(
         <div className={s.profileArea}>
@@ -32,26 +44,16 @@ const Profile = ({profile, updateStatus, status, isOwner, savePhoto}) =>{
 
             {isOwner && <input className={s.chooseFileBtn} type='file' onChange={mainPhotoSelected}/>}   
             <div className = {s.userInfo}>
-                <p className={s.fullName}>{profile.name}</p>                
+                <p className={s.fullName}>{profile.name}</p>  
+
                 <Status updateStatus= {updateStatus} status = {status}/>
-                <div><b>Looking for a job:</b> {profile.lookingForAJob? 'Yes': 'No'}</div>
-                {profile.lookingForAJob && 
-                    <div>
-                        <b>My professional skills:</b> {profile.lookingForAJobDescription}    
-                    </div>}
-                    <div>
-                        <b>Contacts: </b>{ Object.keys(profile.contacts).map(key =>{
-                            if(profile.contacts[key]!=null) return <Contact key={key} contactTitle = {key} contactValue={profile.contacts[key]} />
-                        })}
-                    </div>
-                
-                <div><b>About me:</b> {profile.aboutMe}</div>
+                {!isEditMode && <button onClick={activateEditMode}>Edit profile</button>}
+                {isEditMode ? <ProfileInfoForm /> : <ProfileInfo profile={profile}/>}
+                {isEditMode && <button onClick={deactiveteEditMode}>Save</button>}
             </div>  
         </div>
     )
 }
 
-const Contact = ({contactTitle, contactValue}) =>{
-    return <div><b>{contactTitle}:</b>{contactValue}</div>
-}
+
 export default Profile
