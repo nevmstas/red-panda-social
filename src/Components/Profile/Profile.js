@@ -6,8 +6,9 @@ import userPhoto from './../../Assets/userImg.png'
 import {Status} from './ProfileInfo/Status'
 import { ProfileInfo } from './ProfileInfo/ProfileInfo'
 import { ProfileInfoForm } from './ProfileInfo/ProfileInfoForm'
+import { saveProfile } from '../../Redux/profile-reducer'
 
-const Profile = ({profile, updateStatus, status, isOwner, savePhoto}) =>{
+const Profile = ({profile, updateStatus, status, isOwner, savePhoto, saveProfile}) =>{
     
     const [isEditMode, setEditMode] = useState(false)
 
@@ -47,9 +48,8 @@ const Profile = ({profile, updateStatus, status, isOwner, savePhoto}) =>{
                 <p className={s.fullName}>{profile.name}</p>  
 
                 <Status updateStatus= {updateStatus} status = {status}/>
-                {!isEditMode && <button onClick={activateEditMode}>Edit profile</button>}
-                {isEditMode ? <ProfileInfoForm /> : <ProfileInfo profile={profile}/>}
-                {isEditMode && <button onClick={deactiveteEditMode}>Save</button>}
+                {!isEditMode && isOwner && <button onClick={activateEditMode}> Edit profile </button>}
+                {isEditMode ? <ProfileInfoForm deactiveteEditMode = {deactiveteEditMode} saveProfile = {saveProfile} profile = {profile}/> : <ProfileInfo profile={profile}/>}
             </div>  
         </div>
     )

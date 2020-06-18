@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import Profile from './Profile'
-import {setUserProfile, getProfile, updateStatus, getStatus, savePhoto} from './../../Redux/profile-reducer'
+import {setUserProfile, getProfile, updateStatus, getStatus, savePhoto, saveProfile} from './../../Redux/profile-reducer'
 import { withRouter, Redirect } from 'react-router-dom'
 import {withAuthRedirect} from './../../hoc/withAuthRedirect'
 import { compose } from 'redux'
@@ -38,7 +38,8 @@ export default compose(
         getProfile,
         updateStatus,
         getStatus,
-        savePhoto
+        savePhoto,
+        saveProfile
     }),
     withRouter,
     withAuthRedirect
