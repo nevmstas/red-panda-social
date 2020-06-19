@@ -8,16 +8,14 @@ export const ProfileInfoForm = ({deactiveteEditMode, saveProfile, profile}) =>{
             fullName: profile.fullName,
             lookingForAJob: profile.lookingForAJob,
             lookingForAJobDescription: profile.lookingForAJobDescription,
-            aboutMe:profile.aboutMe
+            aboutMe:profile.aboutMe,
             
-            // github: '',
-            // vk: '',
-            // facebook: '',
-            // instagram: '',
-            // twitter: '',
-            // website: '',
-            // youtube: '',
-            // mainLink: ''
+            contacts:{
+                github: profile.contacts.github,
+                facebook: profile.contacts.facebook,
+                instagram: profile.contacts.instagram,
+                twitter: profile.contacts.twitter,
+            }
         },
         onSubmit: values =>{
             saveProfile(values)
@@ -60,6 +58,24 @@ export const ProfileInfoForm = ({deactiveteEditMode, saveProfile, profile}) =>{
                        type='text'
                        onChange={formik.handleChange}
                        value={formik.values.aboutMe} />
+            </div>
+
+            <div>
+                <label htmlFor='github'>Github</label>
+                <input id ='github' 
+                       name='contacts.github'
+                       type='text'
+                       onChange={formik.handleChange}
+                       value={formik.values.github} />
+            </div>
+
+            <div>
+                <label htmlFor='facebook'>Facebook</label>
+                <input id ='facebook' 
+                       name='contacts.facebook'
+                       type='text'
+                       onChange={formik.handleChange}
+                       value={formik.values.facebook} />
             </div>
 
             <div>
