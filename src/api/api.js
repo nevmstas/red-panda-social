@@ -9,14 +9,12 @@ const instance = axios.create({
 })
 
 export const postApi = {
-    // getPosts(){
-    //     const response = fetch('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response => response.json())
-    //     return response
-    // } 
     getPosts(){
-        return axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response => response.data)
-    }
-    
+        return fetch('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response => response.json())
+    } 
+    // getPosts(){
+    //     return axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response => response.data)
+    // }
 }
 
 export const usersApi = {
