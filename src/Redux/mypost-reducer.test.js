@@ -1,11 +1,11 @@
-// import * as mypost from './mypost-reducer'
+import {myPostReducer} from './mypost-reducer'
 
-// describe('actions',()=>{
-//     const post = 'new post'
-//     const expectedAction = {
-//         type: 'ADD-POST',
-//         post
-//     }
+describe('actions',() => {
+    const post = 'new post'
+    const expectedAction = {
+        type: 'ADD-POST',
+        post
+    }
 
-//     expect(mypost.addPost(post)).toEqual(expectedAction)
-// })
+    expect(myPostReducer.addPost(post)).toEqual(expectedAction)
+})

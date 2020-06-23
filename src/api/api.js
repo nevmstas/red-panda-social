@@ -7,6 +7,17 @@ const instance = axios.create({
         "API-KEY" : "f97bc1d7-2910-490d-a19c-f5fbf0d0365f" 
     }
 })
+
+export const postApi = {
+    async getPosts(){
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response=>{
+            return response.json()
+        })
+        console.log(response)
+        return await response
+    } 
+}
+
 export const usersApi = {
     getUsers(currentPage = 1, pageSize = 10){
         return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)

@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Post from './Post/Post'
 import s from './MyPosts.module.css'
 import {Formik, useFormik} from 'formik'
 
 const MyPosts = (props) =>{
-    let postElements = props.posts.map((post) => <Post message = {post.text}/> )
+
+    useEffect(()=>{
+        props.getFetchedPosts()
+    }, [])
+
+    //let postElements = props.posts.map((post) => <Post message = {post.text}/> )
+    let postElements = props.fetchedPosts.map((post) => <Post message = {post.title}/> )
     
     return(
             <div className={s.postArea}>
