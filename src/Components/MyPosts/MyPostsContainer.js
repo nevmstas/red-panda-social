@@ -1,7 +1,7 @@
 import MyPosts from './MyPosts'
 import {connect} from 'react-redux'
 
-import {addPost, onPostChange, getFetchedPosts} from '../../Redux/mypost-reducer'
+import {addPost, onPostChange, getFetchedPosts, setFetchedPosts} from '../../Redux/mypost-reducer'
 import { compose } from 'redux'
 
 let mapStateToProps = (state) =>{  
@@ -15,6 +15,5 @@ export default compose(
     connect(mapStateToProps, {
         addPost,
         getFetchedPosts
-        
     })
     )(MyPosts)

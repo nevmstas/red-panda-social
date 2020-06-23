@@ -17,7 +17,6 @@ let initialState = {
 
 
 export const myPostReducer = (state = initialState, action) =>{  
-
     switch (action.type) {
         case ADD_POST:{
                 let newPost = {
@@ -34,7 +33,7 @@ export const myPostReducer = (state = initialState, action) =>{
         case SET_FETCHED_POSTS:
             return {
                 ...state,
-                fetchedPosts: [...state.fetchedPosts, action.payload]
+                fetchedPosts: action.payload
             }
         default:
             return state
@@ -49,7 +48,8 @@ export const addPost =(post)=>{
 }
 
 export const setFetchedPosts = (posts) =>{
-    debugger
+
+    console.log(posts)
     return {
         type: SET_FETCHED_POSTS,
         payload: posts
@@ -57,6 +57,7 @@ export const setFetchedPosts = (posts) =>{
 }
 
 export const getFetchedPosts = () => async (dispatch)=>{
-    const data = postApi.getPosts()
+    const data = await postApi.getPosts()
+    console.log(data)
     dispatch(setFetchedPosts(data))
 }

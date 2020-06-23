@@ -22,9 +22,15 @@ const DialogsContainer = React.lazy(() => import('./Components/Dialogs/DialogsCo
 const ProfileContainer = React.lazy(() => import('./Components/Profile/ProfileContainer'));
 
 const App =(props) => {
-
+  const catchAllUnhandledErrors = (promiseRehectionEvent)=>{
+    alert('some error occured')
+  }
   useEffect(()=>{
     props.initializeApp()
+    window.addEventListener('unhandledrejection', catchAllUnhandledErrors)
+    return () => {
+      window.removeEventListener('unhandledrejection', catchAllUnhandledErrors);
+    };
   },[])
   
   if(props.initalized) return <Loader />

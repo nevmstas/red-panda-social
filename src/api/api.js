@@ -9,13 +9,14 @@ const instance = axios.create({
 })
 
 export const postApi = {
-    async getPosts(){
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response=>{
-            return response.json()
-        })
-        console.log(response)
-        return await response
-    } 
+    // getPosts(){
+    //     const response = fetch('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response => response.json())
+    //     return response
+    // } 
+    getPosts(){
+        return axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response => response.data)
+    }
+    
 }
 
 export const usersApi = {
