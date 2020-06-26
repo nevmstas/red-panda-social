@@ -4,6 +4,8 @@ export const ADD_POST = 'ADD-POST'
 export const REQUEST_POSTS = 'POST/REQUEST_POSTS'
 export const SET_FETCHED_POSTS = 'POST/SET_FETCHED_POSTS'
 
+const ADD_FETCHED_POST = 'ADD_FETCHED_POST'
+
 let initialState = {
     posts: [
         {id:1, text: 'Post 1', likes: 1},
@@ -37,6 +39,12 @@ export const myPostReducer = (state = initialState, action) =>{
                 ...state,
                 fetchedPosts: action.payload
             }
+        case  ADD_FETCHED_POST:
+            debugger
+            return{
+                ...state,
+                fetchedPosts: [...state.fetchedPosts, action.payload]
+            }
         default:
             return state
     }
@@ -50,11 +58,16 @@ export const addPost =(post)=>{
 }
 
 export const setFetchedPosts = (posts) =>{
-
-    console.log(posts)
     return {
         type: SET_FETCHED_POSTS,
         payload: posts
+    }
+}
+
+export const addFetchedPostsSuccess = (post) =>{
+    return {
+        type: ADD_FETCHED_POST,
+        payload: post
     }
 }
 
@@ -62,4 +75,12 @@ export const getFetchedPosts = () => async (dispatch)=>{
     const data = await postApi.getPosts()
     console.log(data)
     dispatch(setFetchedPosts(data))
+}
+
+export const addFetchedPost = (text) => async (dispatch) =>{ 
+    const newPost = await postApi.addPost(text)
+    debugger
+    dispatch(addFetchedPostsSuccess(newPost))
+    
+    dispatch(getFetchedPosts)
 }

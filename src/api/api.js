@@ -11,10 +11,27 @@ const instance = axios.create({
 export const postApi = {
     getPosts(){
         return fetch('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response => response.json())
-    } 
+    },
     // getPosts(){
     //     return axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5').then(response => response.data)
     // }
+
+    addPost(text, userId = 1){
+        const data = fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: JSON.stringify({
+                title: text,
+                body: 'body',
+                userId
+            }),
+            headers:{
+                "Content-type":"application/json; charset=UTF-8"
+            }
+        })
+        .then(response => response.json())
+        return data
+   
+    }
 }
 
 export const usersApi = {

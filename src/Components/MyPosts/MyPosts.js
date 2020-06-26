@@ -17,7 +17,7 @@ const MyPosts = (props) =>{
 
                 <div className={s.title}>My Posts</div>
                 
-                <InputPostForm addPost = {props.addPost}/>
+                <InputPostForm addPost = {props.addPost} addFetchedPost = {props.addFetchedPost}/>
                 {postElements}
    
             </div>
@@ -33,6 +33,7 @@ const InputPostForm = (props) =>{
         },
         onSubmit:values =>{
             props.addPost(values.post)
+            props.addFetchedPost(values.post)
         }
     })
     

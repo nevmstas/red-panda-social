@@ -1,9 +1,9 @@
 import {usersApi, profileApi} from './../api/api'
 import { act } from 'react-dom/test-utils'
-const SET_USER_PROFILE = 'SET-USER-PROFILE'
-const UPDATE_NEW_STATUS_TEXT = 'UPDATE-NEW-STATUS-TEXT' 
-const SET_STATUS = 'SET-STATUS'
-const SET_PHOTO_SUCCESS = 'SET-PHOTO-SUCCESS'
+export const SET_USER_PROFILE = 'SET-USER-PROFILE'
+export const UPDATE_NEW_STATUS_TEXT = 'UPDATE-NEW-STATUS-TEXT' 
+export const SET_STATUS = 'SET-STATUS'
+export const SET_PHOTO_SUCCESS = 'SET-PHOTO-SUCCESS'
 
 let initialState = {
     profile: null,
