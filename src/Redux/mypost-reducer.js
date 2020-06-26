@@ -1,8 +1,8 @@
 import { postApi } from "../api/api"
 
-const ADD_POST = 'ADD-POST'
-const REQUEST_POSTS = 'POST/REQUEST_POSTS'
-const SET_FETCHED_POSTS = 'POST/SET_FETCHED_POSTS'
+export const ADD_POST = 'ADD-POST'
+export const REQUEST_POSTS = 'POST/REQUEST_POSTS'
+export const SET_FETCHED_POSTS = 'POST/SET_FETCHED_POSTS'
 
 let initialState = {
     posts: [
@@ -11,7 +11,9 @@ let initialState = {
         {id:3, text: 'Post 3', likes: 4},
         {id:4, text: 'Post 4', likes: 2}
     ],
-    fetchedPosts: []
+    fetchedPosts: [
+        { userId: 1, id: 2, title: 'Title', body: 'post body' }
+    ]
 }
 
 
