@@ -1,13 +1,21 @@
 import {connect} from 'react-redux'
-import React, { useEffect } from 'react'
+import React, { useEffect, FC } from 'react'
 import Users from './Users'
 import {setCurrentPage,  toggleFollowingProgress, getUsers, follow, unFollow} from '../../Redux/users-reducer'
 
+// type PropsTypes ={
+//     currentPage: number
+//     pageSize:number
+//     getUsers: (currentPage: number, pageSize:number) => void
+//     setCurrentPage: (pageNumber:number) => void
+//     users:any
+// }
 
 const UsersContainer = (props) =>{
     
     useEffect(()=>{
-        props.getUsers(props.currentPage, props.pageSize);
+        const {currentPage, pageSize} = props
+        props.getUsers(currentPage, pageSize);
     },[])
     
     let onPageChanged = (pageNumber)=>{

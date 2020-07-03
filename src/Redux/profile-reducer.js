@@ -10,6 +10,10 @@ let initialState = {
     status: ''
 }
 
+// type ProfileType = {
+    
+// }
+
 export const profileReducer = (state = initialState, action) =>{
     switch (action.type) {
         case SET_USER_PROFILE:

@@ -1,3 +1,5 @@
+import { AnyAction } from "redux"
+
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 const SEND_MESSAGE = 'SEND-MESSAGE'
 
@@ -9,26 +11,31 @@ type MessageType = {
     id:number
     text:string
 }
+interface InitialStateType {
+    dialogs:Array<DialogType>
+    messages:Array<MessageType>
+    newMessageText:string
+}
 
-let initialState = {
+let initialState: InitialStateType= {
     dialogs: [
         {id:1, name: 'Rick'},
         {id:2, name: 'Summer'},
         {id:3, name: 'Bethany'},
         {id:4, name: 'Jerry'},
-    ] as Array<DialogType>,
+    ],
     messages: [
         {id:1, text:'Hi'},
         {id:2, text:'Hello'},
         {id:3, text:'How are u doing?'},
         {id:4, text:'I am doing well, what about u?'}
-    ] as Array<MessageType>,
+    ],
     newMessageText:''           
 }
 
 type initialStateType = typeof initialState
 
-export const dialogReducer = (state = initialState, action:any): initialStateType =>{
+export const dialogReducer = (state = initialState, action: AnyAction): initialStateType =>{
 
 
     switch (action.type) {

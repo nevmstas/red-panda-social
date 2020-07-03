@@ -6,7 +6,25 @@ export const SET_FETCHED_POSTS = 'POST/SET_FETCHED_POSTS'
 
 const ADD_FETCHED_POST = 'ADD_FETCHED_POST'
 
-let initialState = {
+type PostType = {
+    id:number
+    text:string
+    likes:number
+}
+
+type FetchedPost = {
+    userId: number 
+    id: number 
+    title: string
+    body: string
+}
+
+interface initialStateType {
+    posts:Array<PostType>
+    fetchedPosts:Array<FetchedPost>
+}
+
+let initialState: initialStateType = {
     posts: [
         {id:1, text: 'Post 1', likes: 1},
         {id:2, text: 'Post 2', likes: 2},
@@ -18,9 +36,7 @@ let initialState = {
     ]
 }
 
-
-
-export const myPostReducer = (state = initialState, action) =>{  
+export const myPostReducer = (state = initialState, action:any): initialStateType =>{  
     switch (action.type) {
         case ADD_POST:{
                 let newPost = {
@@ -31,7 +47,6 @@ export const myPostReducer = (state = initialState, action) =>{
                 return {
                     ...state,
                     posts: [...state.posts, newPost],
-
                 }        
         }
         case SET_FETCHED_POSTS:
@@ -49,35 +64,46 @@ export const myPostReducer = (state = initialState, action) =>{
             return state
     }
 }
-
-export const addPost =(post)=>{
+type addPostActionType = {
+    type: typeof ADD_POST
+    post: PostType
+}
+export const addPost =(post:PostType): addPostActionType=>{
     return {
         type:ADD_POST,
         post
     }
 }
 
-export const setFetchedPosts = (posts) =>{
+type SetFetchedPostsType = {
+    type: typeof SET_FETCHED_POSTS
+    payload: FetchedPost
+}
+export const setFetchedPosts = (posts: FetchedPost) : SetFetchedPostsType=>{
     return {
         type: SET_FETCHED_POSTS,
         payload: posts
     }
 }
 
-export const addFetchedPostsSuccess = (post) =>{
+type AddFetchedPostsSuccessType = {
+    type: typeof ADD_FETCHED_POST
+    payload: FetchedPost
+}
+export const addFetchedPostsSuccess = (post: FetchedPost) :AddFetchedPostsSuccessType =>{
     return {
         type: ADD_FETCHED_POST,
         payload: post
     }
 }
 
-export const getFetchedPosts = () => async (dispatch)=>{
+export const getFetchedPosts = () => async (dispatch:any)=>{
     const data = await postApi.getPosts()
     console.log(data)
     dispatch(setFetchedPosts(data))
 }
 
-export const addFetchedPost = (text) => async (dispatch) =>{ 
+export const addFetchedPost = (text:string) => async (dispatch:any) =>{ 
     const newPost = await postApi.addPost(text)
     debugger
     dispatch(addFetchedPostsSuccess(newPost))

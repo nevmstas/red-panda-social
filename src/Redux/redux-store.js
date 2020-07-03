@@ -9,7 +9,7 @@ import {authReducer} from './auth-reducer'
 import {appReducer} from './app-reducer'
 import thunkMiddleware from 'redux-thunk'
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
     PostPage: myPostReducer,
     profilePage: profileReducer,
     messagesPage: dialogReducer,
@@ -19,7 +19,9 @@ let reducers = combineReducers({
     app: appReducer
 })
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware))
+//type RootReducerType = typeof rootReducer
+
+let store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
 
 window.store = store
 
