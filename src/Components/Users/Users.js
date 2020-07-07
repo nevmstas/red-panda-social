@@ -2,8 +2,22 @@ import React, { useState } from 'react'
 import {User} from './User/User'
 import s from './Users.module.css'
 import {Loader} from '../Common/Loader/Loader'
+import {UsersType} from '../../types/types'
 
 //Presentation component
+// type UsersProps = {
+//     onPageChanged: () => void
+//     users : Array<UsersType>
+//     totalUsersCount: number
+//     pageSize: number 
+//     currentPage : number
+//     follow: () => void
+//     unFollow : () => void
+//     isFetching:boolean               
+//     followingInProgress:boolean
+//     portionSize:number
+// }
+
 const Users = (props) =>{
     debugger
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)

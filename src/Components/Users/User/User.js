@@ -2,8 +2,16 @@ import React from 'react'
 import s from './User.module.css'
 import userPhoto from './../../../Assets/userImg.png'
 import { NavLink } from 'react-router-dom'
+//import {UsersType} from '../../types/types'
 
-export const User = (props)=>{
+// type UserProps = {
+//     follow: (userId:number) => void
+//     unFollow: (userId:number) =>void
+//     user: UsersType
+    
+// }
+
+export const User= (props)=>{
     const onFollowClick = (userId) =>{
         props.follow(userId)
     }
